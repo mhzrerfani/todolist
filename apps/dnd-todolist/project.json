@@ -1,0 +1,84 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/dnd-todolist/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/dnd-todolist",
+        "index": "apps/dnd-todolist/src/index.html",
+        "baseHref": "/",
+        "main": "apps/dnd-todolist/src/main.tsx",
+        "polyfills": "apps/dnd-todolist/src/polyfills.ts",
+        "tsConfig": "apps/dnd-todolist/tsconfig.app.json",
+        "assets": [
+          "apps/dnd-todolist/src/favicon.ico",
+          "apps/dnd-todolist/src/assets"
+        ],
+        "styles": ["apps/dnd-todolist/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/dnd-todolist/src/environments/environment.ts",
+              "with": "apps/dnd-todolist/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "dnd-todolist:build",
+        "hmr": true,
+        "proxyConfig": "apps/dnd-todolist/proxy.conf.json"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "dnd-todolist:build:development"
+        },
+        "production": {
+          "buildTarget": "dnd-todolist:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/dnd-todolist/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/dnd-todolist"],
+      "options": {
+        "jestConfig": "apps/dnd-todolist/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
