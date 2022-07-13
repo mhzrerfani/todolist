@@ -15,10 +15,7 @@
         "main": "apps/dnd-todolist/src/main.tsx",
         "polyfills": "apps/dnd-todolist/src/polyfills.ts",
         "tsConfig": "apps/dnd-todolist/tsconfig.app.json",
-        "assets": [
-          "apps/dnd-todolist/src/favicon.ico",
-          "apps/dnd-todolist/src/assets"
-        ],
+
         "styles": ["apps/dnd-todolist/src/styles.css"],
         "scripts": [],
         "webpackConfig": "@nrwl/react/plugins/webpack"
