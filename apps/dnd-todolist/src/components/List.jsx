@@ -48,9 +48,9 @@ const List = ({
                 <path
                   d="M30 7L25 2L5 22L3 29L10 27L30 7ZM21 6L26 11L21 6ZM5 22L10 27L5 22Z"
                   stroke="black"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             </button>
