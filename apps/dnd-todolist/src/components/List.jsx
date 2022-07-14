@@ -16,9 +16,7 @@ const List = ({
 
   const [newTitle, setNewTitle] = useState(title);
   const [newDescription, setNewDescription] = useState(description);
-  const [listTasks, setTasks] = useState(tasks);
   const [showCreateModal, setCreateModalShow] = useState(false);
-
   const [newTask, setNewTask] = useState('');
 
   const closeModal = () => {
@@ -110,8 +108,8 @@ const List = ({
         <p className="text-xs">{description}</p>
       </div>
       <div className="flex flex-col gap-1">
-        {listTasks
-          ? listTasks.map((task) => {
+        {tasks
+          ? tasks.map((task) => {
               return (
                 <Task
                   key={Math.random()}

@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Header = () => {
   return (
     <div className="w-full flex justify-center py-3 bg-[#841474]">
